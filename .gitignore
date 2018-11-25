@@ -45,6 +45,7 @@ coverage.xml
 venv/
 
 # IDE and text editor
+.vscode/
 .idea/
 *~
 
