@@ -7,18 +7,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'oiy*wjl4r_v56c9ju!#hai1bqg8b(cb)*)xpw*_@t*qn()i7t4'
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    'ordered_model',
+    'ordered_model',  # https://github.com/bfirsh/django-ordered-model
     'questions.apps.QuestionsConfig',
+    'api.apps.ApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',  # https://www.django-rest-framework.org/
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
