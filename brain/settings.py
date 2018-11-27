@@ -8,12 +8,11 @@ SECRET_KEY = 'oiy*wjl4r_v56c9ju!#hai1bqg8b(cb)*)xpw*_@t*qn()i7t4'
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver']
 
 INSTALLED_APPS = [
     'ordered_model',  # https://github.com/bfirsh/django-ordered-model
     'questions.apps.QuestionsConfig',
-    'api.apps.ApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
