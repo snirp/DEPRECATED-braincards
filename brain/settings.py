@@ -13,6 +13,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver']
 INSTALLED_APPS = [
     'ordered_model',  # https://github.com/bfirsh/django-ordered-model
     'questions.apps.QuestionsConfig',
+    'corsheaders',  # https://github.com/ottoyiu/django-cors-headers/
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,7 +31,15 @@ REST_FRAMEWORK = {
     ]
 }
 
+# No specific white-listed domains
+CORS_ORIGIN_ALLOW_ALL = True
+# Only for requests to these urls
+CORS_URLS_REGEX = r'^/rest/.*$'
+# Allow cookies in the requests
+CORS_ALLOW_CREDENTIALS = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
