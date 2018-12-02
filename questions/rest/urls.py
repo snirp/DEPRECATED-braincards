@@ -10,5 +10,5 @@ router.register(r'answers', views.AnswerViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^auth/', include('rest_framework.urls', namespace='rest_questions'))
+    # url(r'^auth/', include('rest_framework.urls', namespace='rest_questions'))
 ]

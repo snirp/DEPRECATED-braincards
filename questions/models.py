@@ -21,6 +21,6 @@ class Choice(OrderedModel):
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     correct = models.BooleanField(default=True)
     time = models.DateTimeField(auto_now_add=True)

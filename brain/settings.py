@@ -20,16 +20,33 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',  # https://www.django-rest-framework.org/
+    'rest_framework.authtoken',
+    'rest_auth',  # https://django-rest-auth.readthedocs.io/en/latest/
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.github',
 ]
+
+SITE_ID = 1
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
 }
+
+# Avoid missing SMTP server error, when trying to send verification mail
+# https://stackoverflow.com/questions/21563227/django-allauth-example-errno-61-connection-refused
+# https://github.com/pennersr/django-allauth/issues/1377
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 # No specific white-listed domains
 CORS_ORIGIN_ALLOW_ALL = True
