@@ -1,4 +1,4 @@
-# braincards
+# DEPRECATED braincards
 Service for embedded questions and spaced repetition
 
-*This codebase is currently under development. Please check back for more information soon.*
+This repository has been supplanted by a new codebase at https://github.com/snirp/braincards and is kept only for reference.
